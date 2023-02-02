@@ -166,6 +166,10 @@ impl Workload {
             require_after: DedupedLabels::new(),
         }
     }
+    /// The name of the workload.
+    pub fn name(&self) -> Box<dyn Label> {
+        self.name.clone()
+    }
     /// Moves all systems of `other` into `Self`, leaving `other` empty.  
     /// This allows us to collect systems in different builders before joining them together.
     pub fn append(mut self, other: &mut Self) -> Self {
